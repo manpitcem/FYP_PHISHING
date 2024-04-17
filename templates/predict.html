@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Phishing Attack Detection System</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/util.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/predict.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/floating.css') }}">
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </head>
+    <body>
+        <div class="bg-contact2">
+            <div class="container-contact2">
+                <div class="wrap-contact2">
+
+                    <form class="contact2-form validate-form" action="{{ url_for('awareness')}}" method="post">
+                        <div class="emojis">
+                            <div class="emoji">
+                                <button type="submit" name="action"  value="Awareness">
+                                    <img src="{{url_for('static', filename='bg5.png')}}" align="middle" width="96">
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                
+                    <form class="contact2-form validate-form" action="{{ url_for('predict')}}" method="post">
+                        <span class="contact2-form-title">
+                            Phishing Website Detection
+                        </span>
+                        <div class="wrap-input2 validate-input">
+                            <input class="input2" type="text" name="SSLfinal_State" required="required" placeholder="Insert URL here"/>
+                            <span class="focus-input2" ></span>
+                        </div>
+                        <br><br><br>
+                        <div class="container-contact2-form-btn">
+                            <div class="wrap-contact2-form-btn">
+                                <div class="contact2-form-bgbtn"></div>
+                                <button class="contact2-form-btn" type="submit">Load Detection API</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form class="contact2-form validate-form" action="{{ url_for('mitigation')}}" method="post">
+                        <div class="container-contact2-form-btn">
+                            <div class="wrap-contact3-form-btn">
+                                <div class="contact3-form-bgbtn"></div>
+                                <button class="contact2-form-btn" type="submit" name="action" value="Report">Report Phishing</button>
+                                <hr><hr><hr>
+                                <button class="contact2-form-btn" type="submit" name="action" value="About">About Us</button>
+                                <hr><hr><hr>
+                                <button class="contact2-form-btn" type="submit" name="action" value="FAQ">FAQ</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form class="contact2-form validate-form" action="{{ url_for('logout')}}" method="post">
+                        <br><br><br>
+                        <div class="container-contact2-form-btn">
+                            <div class="wrap-contact4-form-btn">
+                                <div class="contact4-form-bgbtn"></div>
+                                <button class="contact4-form-btn" type="submit">Logout</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <br>
+                    <br>
+                    <p class="predict">{{ pred }}</p>
+                    <p class="predict">{{ url  }}</p>
+                    <p class="predict">{{ api  }}</p>
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

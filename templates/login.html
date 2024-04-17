@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Login</title>
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='styles/login.css') }}">
+	</head>
+	<body>
+		<div class="container">
+			<div class="wrapper">
+			<div class="title"><span>Authenticate User</span></div>
+				<form method="POST" action="{{ url_for('login') }}">
+                
+					<div class="row">
+						<i class="fas fa-user"></i>
+						<input type="text" name="username" placeholder="Username" required>
+					</div>
+                    
+					<div class="row">
+						<i class="fas fa-lock"></i>
+						<input type="password" name="password" placeholder="Password" required>
+					</div>
+
+					{% if login_status %}
+					<p class=error><strong>Error: </strong></p>
+					<p style="color:red">{{ login_status }}</p>
+					{% endif %}
+					<br>
+
+					<div class="row button">
+						<input name="two_buttons" value="Login" id="login" type="submit">
+					</div>
+                    
+					<div class="row button">
+						<input name="two_buttons" value="Register" id="register" type="submit">
+					</div>
+                    
+				</form>
+			</div>
+		</div>
+
+	</body>
+
+</html>
